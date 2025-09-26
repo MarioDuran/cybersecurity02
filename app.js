@@ -102,7 +102,6 @@ app.get('/', (req, res) => {
         window.location = '/granted';
         return;
     }
-    // Mostrar mensaje de error personalizado del servidor
     let text = 'Incorrect password';
     try {
         const js = await resp.json();
@@ -136,9 +135,6 @@ app.post('/login', (req, res) => {
     }
 
     const query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
-
-    console.log(`Ejecutando consulta vulnerable: ${query}`);
-
     db.get(query, (err, row) => {
         if (err) {
             return res.status(500).json({ ok: false, msg: 'Error en el servidor.' });
