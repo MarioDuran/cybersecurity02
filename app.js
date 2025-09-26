@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const sqlite3 = require('sqlite3').verbose(); 
 const app = express();
-const PORT = process.env.PORT || 3018;
+const PORT = process.env.PORT || 10000;
 
 const db = new sqlite3.Database(':memory:');
 
